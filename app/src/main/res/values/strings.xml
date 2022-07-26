@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Food Database Editor</string>
+    <string name="buttonDescription">Add button</string>
+    <string name="ProductName">Название</string>
+    <string name="ProductCategory">Категория</string>
+    <string name="ProductPrice">Цена</string>
+    <string name="ProductWeight">Вес</string>
+    <string name="ProductDescription">Состав</string>
+    <string name="Add">Добавить</string>
+    <string name="Update">Обновить</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
