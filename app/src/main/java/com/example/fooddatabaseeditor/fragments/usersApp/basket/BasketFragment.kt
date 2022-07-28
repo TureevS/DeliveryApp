@@ -36,6 +36,9 @@ class BasketFragment : Fragment() {
         mProductViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
         args.currentProducts?.let { adapter.setData(it) }
 
+        val sumText: String = "Итого " + adapter.getSum().toString() + "Р"
+        view.sumTextView.text = sumText
+
         return view
     }
 

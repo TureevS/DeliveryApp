@@ -36,7 +36,11 @@ class CatalogAdapter(val context: Context): RecyclerView.Adapter<CatalogAdapter.
 
 
         holder.itemView.addToBasketButton.setOnClickListener{
-            Order.order += currentItem
+            if(Order.order.contains(currentItem)){
+                Toast.makeText(context,"Уже содержится", Toast.LENGTH_LONG).show()
+            }else{
+                Order.order += currentItem
+            }
             Toast.makeText(context,"Добавлено в корзину", Toast.LENGTH_LONG).show()
         }
     }
