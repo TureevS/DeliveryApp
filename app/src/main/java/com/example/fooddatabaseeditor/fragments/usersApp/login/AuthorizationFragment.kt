@@ -8,9 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.fooddatabaseeditor.R
 import com.example.fooddatabaseeditor.data.viewmodel.UserViewModel
+import com.example.fooddatabaseeditor.fragments.databaseManager.list.ListFragmentDirections
+import com.example.fooddatabaseeditor.model.User
 import kotlinx.android.synthetic.main.fragment_authorization.view.*
 
 
@@ -18,6 +21,7 @@ import kotlinx.android.synthetic.main.fragment_authorization.view.*
 class AuthorizationFragment : Fragment() {
 
     private lateinit var mUserViewModel: UserViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,15 +45,18 @@ class AuthorizationFragment : Fragment() {
     private fun checkUser() {
         val phone = view?.editTextTextPhoneNumber?.text.toString()
         val password = view?.editTextTextPassword?.text.toString()
+        var user: User?
 
         if(inputCheck(phone, password)){
-            val user = mUserViewModel.getUser(phone, password)
+            user = mUserViewModel.getUser(phone, password)
+
             if(user != null){
                 Toast.makeText(requireContext(),"Вы успешно авторизовались", Toast.LENGTH_LONG).show()
                 if(user.firstName == "admin" && user.password == "admin"){
                     findNavController().navigate(R.id.action_authorizationFragment_to_listFragment)
                 }else{
-                    findNavController().navigate(R.id.action_authorizationFragment_to_catalogFragment)
+                    val action = AuthorizationFragmentDirections.actionAuthorizationFragmentToCatalogFragment(user)
+                    findNavController().navigate(action)
                 }
 
             }else{
@@ -64,5 +71,6 @@ class AuthorizationFragment : Fragment() {
     private fun inputCheck(phone: String, password: String): Boolean{
         return !(TextUtils.isEmpty(phone) || TextUtils.isEmpty(password))
     }
+
 
 }

@@ -13,6 +13,7 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 
     private var productList = emptyList<Product>()
 
+
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
     }
@@ -42,5 +43,7 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.ViewHolder>() {
         this.productList = product
         notifyDataSetChanged()
     }
+
+
 
 }

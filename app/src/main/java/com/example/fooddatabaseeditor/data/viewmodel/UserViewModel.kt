@@ -8,6 +8,7 @@ import com.example.fooddatabaseeditor.data.ProductDatabase
 import com.example.fooddatabaseeditor.model.User
 import com.example.fooddatabaseeditor.data.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
@@ -15,13 +16,12 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
 
     val readAllData: LiveData<List<User>>
     private val repository: UserRepository
-    var user: User?
+    var user: User? = null
 
     init{
         val userDao = ProductDatabase.getDatabase(application).userDao()
         repository = UserRepository(userDao)
         readAllData = repository.readAllData
-        user = null
     }
 
     fun addUser(user: User){

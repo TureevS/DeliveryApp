@@ -1,14 +1,22 @@
 package com.example.fooddatabaseeditor.fragments.usersApp.catalog
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fooddatabaseeditor.R
+import com.example.fooddatabaseeditor.fragments.databaseManager.list.ListFragmentDirections
+import com.example.fooddatabaseeditor.model.Order
 import com.example.fooddatabaseeditor.model.Product
+import kotlinx.android.synthetic.main.custom_row.view.*
 import kotlinx.android.synthetic.main.product_row.view.*
+import kotlinx.coroutines.NonDisposableHandle.parent
 
-class CatalogAdapter: RecyclerView.Adapter<CatalogAdapter.CatalogViewHolder>() {
+class CatalogAdapter(val context: Context): RecyclerView.Adapter<CatalogAdapter.CatalogViewHolder>() {
 
     private var productList = emptyList<Product>()
 
@@ -27,6 +35,10 @@ class CatalogAdapter: RecyclerView.Adapter<CatalogAdapter.CatalogViewHolder>() {
         holder.itemView.addToBasketButton.text = currentItem.price.toString()
 
 
+        holder.itemView.addToBasketButton.setOnClickListener{
+            Order.order += currentItem
+            Toast.makeText(context,"Добавлено в корзину", Toast.LENGTH_LONG).show()
+        }
     }
 
     override fun getItemCount(): Int {
