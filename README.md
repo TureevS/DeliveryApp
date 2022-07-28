@@ -1,7 +1,7 @@
 # Delivery App
 В рамках учебной задачи было создано мобильное приложение доставки еды.
 ### Регистрация пользователя
-![1](Screens/registration.png)
+<img src="Screens/registration.png" width="500">
 ### Авторизация
 ![2](Screens/login.png)
 ### Каталог
