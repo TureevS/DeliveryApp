@@ -1,5 +1,10 @@
 # Delivery App
 В рамках учебной задачи было создано мобильное приложение доставки еды.
+
+### [Скрины](#screen)
+### [Технологии проекта](#tech)
+
+<a name="screen"></a>
 ### Регистрация пользователя
 <img src="Screens/registration.png" width="400">
 
@@ -17,6 +22,7 @@
 <img src="Screens/dbadd.png" width="400">
 <img src="Screens/dbupdate.png" width="400">
 
+<a name="tech"></a>
 ### Технологии проекта
-Kotlin
-Room database
+#### Kotlin
+#### Room database
