@@ -18,3 +18,5 @@
 <img src="Screens/dbupdate.png" width="400">
 
 ### Технологии проекта
+Kotlin
+Room database
